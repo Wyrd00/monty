@@ -1,48 +1,49 @@
 #include "monty.h"
-
+/**
+ * main - main
+ * @argc: arg count
+ * @argv: arg value passed
+ * Return: 0 if success
+ */
 int main(int argc, char **argv)
 {
-    char *line;
-    size_t len;
-    ssize_t read;
-    stack_t *head;
-    unsigned int linenum;
-    FILE *fd;
+	char *line;
+	size_t len;
+	ssize_t read;
+	stack_t *head;
+	unsigned int linenum;
+	FILE *fd;
 
-    if (argc != 2)
-    {
-        printf("USAGE: More than 2 arguments");
-        exit(EXIT_FAILURE);
-    }
-    fd = fopen(argv[1], "r");
+	if (argc != 2)
+	{
+		printf("USAGE: monty file");
+		exit(EXIT_FAILURE);
+	}
 
-    if (fd == NULL)
-    {
-        printf("USAGE: fd NULL");
-        exit(EXIT_FAILURE);
-    }
+	fd = fopen(argv[1], "r");
 
-    head = NULL;
-    linenum = 0;
-    line = NULL;
-    len = 0;
+	if (fd == NULL)
+	{
+		printf("Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 
-    do
-    {
-	    ++linenum;
-	    read = getline(&line, &len, fd);
-	    if (read > 0)
-	    {
-		    perform(&head, linenum, line);
-	    }
-	    else
-	    {
-		    free(line);
-	    }
-    } while (read != -1);
+	head = NULL;
+	linenum = 0;
+	line = NULL;
+	len = 0;
 
-    fclose(fd);
-    free_list(head);
+	do {
+		++linenum;
+		read = getline(&line, &len, fd);
+		if (read > 0)
+			perform(&head, linenum, line);
+		else
+			free(line);
+	} while (read != -1);
 
-    return (0);
+	fclose(fd);
+	free_list(head);
+
+	return (0);
 }

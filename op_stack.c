@@ -3,6 +3,7 @@
 /**
  * _push - push a new node to the top of stack
  * @head: head of list
+ * @linenum: line num of monty file
  * @n: value of new node
  */
 
