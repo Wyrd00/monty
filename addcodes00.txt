@@ -1,0 +1,13 @@
+push 3
+push 1
+mul
+	pall
+nop
+	nop
+		nop
+push 7
+add
+pall
+
+sub 5
+pall
