@@ -25,7 +25,7 @@ void _push(stack_t **head, unsigned int linenum, int n)
 }
 
 /**
- * _pop - remove node to the top of stack
+ * _pop - remove node from the top of stack
  * @head: head of list
  * @linenum: line num of monty file
  */

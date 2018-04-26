@@ -17,7 +17,8 @@ void perform(stack_t **head, unsigned int linenum, char *line)
 		{"pop", _pop}, {"swap", _swap},
 		{"add", _add}, {"nop", _nop},
 		{"sub", _sub}, {"div", _div},
-		{"mul", _mul}, {NULL, NULL}
+		{"mul", _mul}, {"mod", _mod},
+		{NULL, NULL}
 	};
 
 	cmd = strtok(line, DELIM);

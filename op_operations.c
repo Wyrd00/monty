@@ -98,3 +98,32 @@ void _mul(stack_t **head, unsigned int linenum)
 	free(*head);
 	*head = vagabond;
 }
+
+/**
+ * _mod - compute remainder of division of second element with top element
+ * @head: head of list
+ * @linenum: line num of monty file
+ */
+
+void _mod(stack_t **head, unsigned int linenum)
+{
+	stack_t *vagabond;
+
+	if (!*head || !(*head)->next)
+	{
+		printf("L%d: can't div, stack too short\n", linenum);
+		free_list(*head);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*head)->n == 0)
+	{
+		printf("L%d: division by zero\n", linenum);
+		free_list(*head);
+		exit(EXIT_FAILURE);
+	}
+	vagabond = (*head)->next;
+
+	vagabond->n %= (*head)->n;
+	*head = vagabond;
+}
