@@ -14,15 +14,16 @@ stack_t *new_node(stack_t **head, int n)
 	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
-		printf("Error creating new node");
+		printf("Error: malloc failed\n");
 		free_list(*head);
-		return (NULL);
+		exit(EXIT_FAILURE);
 	}
 	new->n = n;
 	new->prev = NULL;
+	new->next = *head;
 
-	if (head != NULL)
-		new->next = *head;
+	if (*head != NULL)
+		(*head)->prev = new;
 	*head = new;
 	return (new);
 }

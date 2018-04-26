@@ -1,6 +1,29 @@
 #include "monty.h"
 
 /**
+ * _push - push a new node to the top of stack
+ * @head: head of list
+ * @n: value of new node
+ */
+
+void _push(stack_t **head, unsigned int linenum, int n)
+{
+	stack_t *new;
+
+	if (!head)
+	{
+		printf("L%d: Error with stack\n", linenum);
+		exit(EXIT_FAILURE);
+	}
+	new = new_node(head, n);
+	if (!new)
+	{
+		puts("Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
+}
+
+/**
  * _pop - remove node to the top of stack
  * @head: head of list
  * @linenum: line num of monty file
