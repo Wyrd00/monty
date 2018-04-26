@@ -57,7 +57,7 @@ void _swap(stack_t **head, unsigned int linenum)
 	if (!head)
 		return;
 
-	if ((*head)->next == NULL || (*head)->next->next == NULL)
+	if (!*head || (*head)->next == NULL)
 	{
 		printf("L%d: can't swap, stack too short\n", linenum);
 		free_list(*head);
