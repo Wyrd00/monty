@@ -55,5 +55,6 @@ void _mod(stack_t **head, unsigned int linenum);
 /*Helper functions*/
 stack_t *new_node(stack_t **head, int n);
 void free_list(stack_t *head);
+int _atoi(char *s);
 
 #endif

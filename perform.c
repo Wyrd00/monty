@@ -3,7 +3,7 @@
 void perform(stack_t **head, unsigned int linenum, char *line)
 {
         unsigned int i;
-	char *cmd, *push_num;
+	char *cmd, *p_num;
 
         instruction_t opcmd[] = {
                 {"pall", pall}, {"pint", _pint},
@@ -19,8 +19,14 @@ void perform(stack_t **head, unsigned int linenum, char *line)
 
 	if (strcmp(cmd, "push") == 0)
         {
-		push_num = strtok(NULL, DELIM);
-		_push(head, linenum, atoi(push_num));
+		p_num = strtok(NULL, DELIM);
+		if (!p_num || (atoi(p_num) == 0 && strcmp(p_num, "0") != 0))
+		{
+			printf("L%d: usage: push integer\n", linenum);
+			free_list(*head);
+			exit(EXIT_FAILURE);
+		}
+		_push(head, linenum, _atoi(p_num));
 		return;
         }
 
