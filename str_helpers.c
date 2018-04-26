@@ -32,3 +32,21 @@ int _atoi(char *s)
 	}
 	return (new_value * sign);
 }
+
+/**
+ * check_comments - check if cmd is a comment
+ * @cmd: command
+ * Return: 1 if yes, 0 if no
+ */
+
+int check_comment(char *cmd)
+{
+	int i;
+
+	for (i = 0; cmd[i] != '\0'; i++)
+	{
+		if (cmd[i] == '#')
+			return (1);
+	}
+	return (0);
+}

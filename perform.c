@@ -22,7 +22,7 @@ void perform(stack_t **head, unsigned int linenum, char *line)
 	};
 
 	cmd = strtok(line, DELIM);
-	if (cmd == NULL)/*if blank line*/
+	if (cmd == NULL || check_comment(cmd) == 1)/*if blank line or comment*/
 		return;
 
 	if (strcmp(cmd, "push") == 0)
@@ -31,7 +31,6 @@ void perform(stack_t **head, unsigned int linenum, char *line)
 		if (!p_num || (atoi(p_num) == 0 && strcmp(p_num, "0") != 0))
 		{
 			printf("L%d: usage: push integer\n", linenum);
-			free_list(*head);
 			exit(EXIT_FAILURE);
 		}
 		_push(head, linenum, _atoi(p_num));
@@ -49,7 +48,5 @@ void perform(stack_t **head, unsigned int linenum, char *line)
 		i++;
 	}
 	printf("L%d: unknown instruction %s\n", linenum, cmd);
-	free_list(*head);
-	free(line);
 	exit(EXIT_FAILURE);
 }
