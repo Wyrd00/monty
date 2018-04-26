@@ -22,7 +22,7 @@ void perform(stack_t **head, unsigned int linenum, char *line)
 	};
 
 	cmd = strtok(line, DELIM);
-	if (cmd == NULL)/*if blank line*/
+	if (cmd == NULL || "#")/*if blank line or comment*/
 		return;
 
 	if (strcmp(cmd, "push") == 0)
@@ -49,6 +49,7 @@ void perform(stack_t **head, unsigned int linenum, char *line)
 		i++;
 	}
 	printf("L%d: unknown instruction %s\n", linenum, cmd);
+	free_list(*head);
 	free(line);
 	exit(EXIT_FAILURE);
 }
