@@ -60,10 +60,9 @@ void _pint(stack_t **head, unsigned int linenum)
 	if (!head || !*head)
 	{
 		printf("L%d: can't pint, stack empty\n", linenum);
+		free_list(*head);
 		exit(EXIT_FAILURE);
 	}
 	vagabond = *head;
-
-	if (*head)
-		printf("%d\n", vagabond->n);
+	printf("%d\n", vagabond->n);
 }
