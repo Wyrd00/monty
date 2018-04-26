@@ -125,5 +125,6 @@ void _mod(stack_t **head, unsigned int linenum)
 	vagabond = (*head)->next;
 
 	vagabond->n %= (*head)->n;
+	free(*head);
 	*head = vagabond;
 }
