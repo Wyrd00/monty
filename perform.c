@@ -48,5 +48,6 @@ void perform(stack_t **head, unsigned int linenum, char *line)
 		i++;
 	}
 	printf("L%d: unknown instruction %s\n", linenum, cmd);
+	free(line);
 	exit(EXIT_FAILURE);
 }

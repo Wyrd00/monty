@@ -60,7 +60,6 @@ void _swap(stack_t **head, unsigned int linenum)
 	if (!*head || (*head)->next == NULL)
 	{
 		printf("L%d: can't swap, stack too short\n", linenum);
-		free_list(*head);
 		exit(EXIT_FAILURE);
 	}
 	vagabond = (*head)->next;
