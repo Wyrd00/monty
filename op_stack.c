@@ -18,7 +18,7 @@ void _push(stack_t **head, unsigned int linenum, int n)
 	new = new_node(head, n);
 	if (!new)
 	{
-		puts("Error: malloc failed");
+		printf("Error: cannot create new node\n");
 		exit(EXIT_FAILURE);
 	}
 }

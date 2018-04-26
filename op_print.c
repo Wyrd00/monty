@@ -17,7 +17,7 @@ void pall(stack_t **head, unsigned int linenum)
 	}
 
 	vagabond = *head;
-	while (!vagabond)
+	while (vagabond != NULL)
 	{
 		printf("%d\n", vagabond->n);
 		vagabond = vagabond->next;
@@ -32,14 +32,12 @@ void pall(stack_t **head, unsigned int linenum)
 
 void _pint(stack_t **head, unsigned int linenum)
 {
-	stack_t *vagabond;
-
 	if (!head || !*head)
 	{
 		printf("L%d: can't pint, stack empty\n", linenum);
 		free_list(*head);
 		exit(EXIT_FAILURE);
 	}
-	vagabond = *head;
-	printf("%d\n", vagabond->n);
+	else
+		printf("%d\n", (*head)->n);
 }

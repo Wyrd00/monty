@@ -20,10 +20,9 @@ stack_t *new_node(stack_t **head, int n)
 	}
 	new->n = n;
 	new->prev = NULL;
-	new->next = *head;
 
 	if (*head != NULL)
-		(*head)->prev = new;
+		new->next = *head;
 	*head = new;
 	return (new);
 }
