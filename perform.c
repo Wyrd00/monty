@@ -22,7 +22,7 @@ void perform(stack_t **head, unsigned int linenum, char *line)
 	};
 
 	cmd = strtok(line, DELIM);
-	if (cmd == NULL || "#")/*if blank line or comment*/
+	if (cmd == NULL || strcmp(cmd, "#") == 0)/*if blank line or comment*/
 		return;
 
 	if (strcmp(cmd, "push") == 0)

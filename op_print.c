@@ -11,11 +11,9 @@ void pall(stack_t **head, unsigned int linenum)
 	stack_t *vagabond;
 
 	if (!head || !*head)
-	{
-		printf("L%d: error with pall\n", linenum);
-		exit(EXIT_FAILURE);
-	}
+		return;
 
+	(void)linenum;
 	vagabond = *head;
 	while (vagabond != NULL)
 	{
