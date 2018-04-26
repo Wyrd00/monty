@@ -48,26 +48,14 @@ void _swap(stack_t **head, unsigned int linenum)
 
 	*head = vagabond;
 }
-
 /**
- * _add - add the top two elements of stack
+ * _nop - do nothing
  * @head: head of list
  * @linenum: line num of monty file
  */
 
-void _add(stack_t **head, unsigned int linenum)
+void _nop(stack_t **head, unsigned int linenum)
 {
-	stack_t *vagabond;
-
-	if (!*head || !(*head)->next)
-	{
-		printf("L%d: can't add, stack too short\n", linenum);
-		free_list(*head);
-		exit(EXIT_FAILURE);
-	}
-	vagabond = (*head)->next;
-
-	vagabond->n += (*head)->n;
-	free(*head);
-	*head = vagabond;
+	(void)*head;
+	(void)linenum;
 }
